@@ -26,7 +26,7 @@ always @(posedge clk) begin
     rx_counter <= rx_counter + 1'b1;
 end
 
-assign tx_enb = (tx_counter == 0);
-assign rx_enb = (rx_counter == 0);
+assign tx_enb = !rst && (tx_counter == 0);
+assign rx_enb = !rst && (rx_counter == 0);
 
 endmodule
